@@ -1,0 +1,32 @@
+﻿@using HMI.Models.ProjectViewModels
+@model List<Order>
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div>
+    @if (Model != null)
+    {
+        var i = 1;
+        <h2>Удаленные заказы</h2>
+        foreach (var order in Model)
+        {
+            var curtain = order.Curtain;
+            var user = order.User;
+            <div>
+                <p>@i) <b>Цвет:</b> @curtain.Color</p>
+                <p><b>   Материал:</b> @curtain.Material</p>
+                <p><b>   Размер:</b> @curtain.Width x @curtain.Height</p>
+                <p><b>   Время заказа:</b>  @order.DateOfStart.ToLocalTime()</p>
+                <p><b>   Цена:</b> @order.Price грн</p>
+                <p><b>Заказчик:</b> @user.Name</p>
+                <p><b>Город:</b> @user.City</p>
+                <p><b>Почтовый индекс:</b> @user.PostalCode</p>
+                <p><b>Электронная почта:</b> @user.Email</p>
+            </div>
+            <hr />
+            i++;
+        }
+    }
+</div>

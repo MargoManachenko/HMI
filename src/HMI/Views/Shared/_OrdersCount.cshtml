@@ -1,0 +1,13 @@
+﻿@using HMI.Models
+@using HMI.Data
+@using Microsoft.EntityFrameworkCore
+
+@inject ApplicationDbContext Db
+
+@if(User.Identity.IsAuthenticated)
+{
+    var user = Db.Users.Include(u => u.Orders).Single(u => u.UserName == User.Identity.Name);
+    var orders = user.Orders != null ?user.Orders.Count : 0;
+    <span>(@orders)</span>
+}
+

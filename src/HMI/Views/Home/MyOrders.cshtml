@@ -1,0 +1,58 @@
+﻿@using HMI.Models.ProjectViewModels
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@model List<Order>
+
+@{
+}
+
+<br />
+<div class="panel panel-info">
+    <div class="panel-heading" style='text-align: center'>
+        <h2>
+            Ваши заказы
+        </h2>
+
+    </div>
+
+    <div class="panel-body" style="margin-left: 20px; margin-top: 20px">
+        @if (Model != null)
+        {
+            foreach (var order in Model)
+            {
+                var curtain = order.Curtain;
+                <div>
+                    <h4>
+                    <p> <b>Цвет:</b> @curtain.Color</p>
+                    <p><b> Материал:</b> @curtain.Material</p>
+                    <p><b> Размер:</b> @curtain.Width x @curtain.Height</p>
+                    <p><b> Время заказа:</b> @order.DateOfStart.ToLocalTime()</p>
+                    <p><b> Цена:</b> @order.Price грн
+                    </p>
+                    <p>
+                        <b>Состояние:</b>
+                        @if (order.State == 2)
+                        {
+                            <span>Завершен</span>
+                        }
+                        else if (order.State == 1)
+                        {
+                            <span>Выполняется</span>
+                        }
+                        else if (order.State == 0)
+                        {
+                            <span>Заявка подана</span>
+                        }
+                        else if (order.State == 3)
+                        {
+                            <span>Удалено</span>
+
+                        }
+
+                    </p>
+                        </h4>
+                </div>
+                <hr />
+            }
+        }
+    </div>
+</div>
