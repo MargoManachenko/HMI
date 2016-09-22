@@ -3,76 +3,76 @@
 
 @{
 }
-<br />
-<div class="panel panel-info" style='text-align: center'>
-    <div class="panel-heading">
-        <h2> 
-            Оформить новый заказ
-        </h2>
-    </div>
-    <form asp-controller="Home" asp-action="CreateOrder" method="post" class="form-horizontal"style='margin-left: 300px' >
-
-        <div class="panel-body" >
-
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Ширина</label>
-                <div class="col-md-10">
-                    <input asp-for="Width" class="form-control num input" id="width" />
-                    <span asp-validation-for="Width" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Высота</label>
-                <div class="col-md-10">
-                    <input asp-for="Height" class="form-control num input" id="height" />
-                    <span asp-validation-for="Height" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Материал</label>
-                <div class="col-md-10">
-                    <select asp-for="Material" class="form-control" id="material">
-                        @foreach (var material in Collections.MaterialsWithPrice.Keys)
-                        {
-                            <option>@material</option>
-                        }
-                    </select>
-                    <span asp-validation-for="Material" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Цвет</label>
-                <div class="col-md-10">
-                    <select asp-for="Color" class="form-control" id="color">
-                        @foreach (var color in Collections.Colors)
-                        {
-                            <option>@color</option>
-                        }
-                    </select>
-                    <span asp-validation-for="Color" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label input">Количество</label>
-                <div class="col-md-10">
-                    <input asp-for="Quantity" class="form-control" id="quantity" />
-                    <span asp-validation-for="Quantity" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group" style="margin-right: 150px">
-                <div class="col-md-offset-2 col-md-10">
-                    <button type="button" class="btn btn-primary priceBtn">Оценить</button>
-                    <span id="price"></span>
-                </div>
-            </div>
-            <div class="form-group" style="margin-right: 150px">
-                <div class="col-md-offset-2 col-md-10">
-                    <button type="submit" class="btn btn-success">Заказать</button>
-                </div>
-            </div>
-
+<body style="background-image: url(../images/bgr.jpg)">
+    <br />
+    <div class="panel panel-info" style= "text-align: center; background-color: rgba(255, 255, 255, 0.6)">
+        <div class="panel-heading">
+            <h2>
+                Оформить новый заказ
+            </h2>
         </div>
-    </form>
-</div>
+        <form asp-controller="Home" asp-action="CreateOrder" method="post" class="form-horizontal" style='margin-left: 300px'>
 
+            <div class="panel-body">
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Ширина</label>
+                    <div class="col-md-10">
+                        <input asp-for="Width" class="form-control num input" id="width" />
+                        <span asp-validation-for="Width" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Высота</label>
+                    <div class="col-md-10">
+                        <input asp-for="Height" class="form-control num input" id="height" />
+                        <span asp-validation-for="Height" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Материал</label>
+                    <div class="col-md-10">
+                        <select asp-for="Material" class="form-control" id="material">
+                            @foreach (var material in Collections.MaterialsWithPrice.Keys)
+                            {
+                                <option>@material</option>
+                            }
+                        </select>
+                        <span asp-validation-for="Material" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Цвет</label>
+                    <div class="col-md-10">
+                        <select asp-for="Color" class="form-control" id="color">
+                            @foreach (var color in Collections.Colors)
+                            {
+                                <option>@color</option>
+                            }
+                        </select>
+                        <span asp-validation-for="Color" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label input">Количество</label>
+                    <div class="col-md-10">
+                        <input asp-for="Quantity" class="form-control" id="quantity" />
+                        <span asp-validation-for="Quantity" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" style="padding-right: 500px">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="button" class="btn btn-primary priceBtn">Оценить</button>
+                        <span id="price"></span>
+                    </div>
+                </div>
+                <div class="form-group" style="padding-right: 500px">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-default">Заказать</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
