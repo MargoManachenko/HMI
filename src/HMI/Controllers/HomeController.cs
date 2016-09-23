@@ -38,6 +38,12 @@ namespace HMI.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult ShowGallery()
+        {
+            return View();
+        }
+
         [Authorize]
         [HttpPost]
         public IActionResult CreateOrder(Curtain curtain)

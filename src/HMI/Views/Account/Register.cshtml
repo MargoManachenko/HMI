@@ -3,69 +3,70 @@
 @{
     ViewData["Title"] = "Register";
 }
+<body style="background-image: url(../images/bgr2.jpg); padding-right: 100px; font-size-adjust: 30px">
+    <link rel="stylesheet" href="~/css/style_reg.css" />
 
-<link rel="stylesheet" href="~/css/style_reg.css" />
+    <div class="form-container" >
+        <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal form">
+            <h4 class="header" style="text-align: center;">Создание нового аккаунта</h4>
+            <hr />
+            <!--<div class="text-danger"></div>-->
+            <div class="form-group">
+                <div>
+                    <input asp-for="Name" class="form-control" placeholder="Ваше имя..." />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <input asp-for="Email" class="form-control" placeholder="Ваш электронный адрес..." />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Ваш пароль..." />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Подтвердите пароль..." />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <input asp-for="Phone" class="form-control phone" value="+380" placeholder="Ваш сотовый..." />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <select asp-for="City" class="form-control">
+                        @foreach (var city in Collections.Cities)
+                        {
+                            <option>@city</option>
 
-<div class="form-container">
-    <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal form">
-        <h4 class="header" style="text-align:center;">Создание нового аккаунта</h4>
-        <hr />
-        <!--<div class="text-danger"></div>-->
-        <div class="form-group">
-            <div>
-                <input asp-for="Name" class="form-control" placeholder="Ваше имя..." />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                        }
+                    </select>
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div>
-                <input asp-for="Email" class="form-control" placeholder="Ваш электронный адрес..." />
-                <span asp-validation-for="Email" class="text-danger"></span>
+            <div class="form-group">
+                <div>
+                    <input asp-for="PostalCode" class="form-control num-only" placeholder="Ваш почтовый индекс..." />
+                    <span asp-validation-for="PostalCode" class="text-danger"></span>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div>
-                <input asp-for="Password" type="password" class="form-control" placeholder="Ваш пароль..." />
-                <span asp-validation-for="Password" class="text-danger"></span>
+            <div class="form-group">
+                <div>
+                    <button type="submit" class="btn btn-success sub">Зарегистрироваться</button>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div>
-                <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Подтвердите пароль..." />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <div>
-                <input asp-for="Phone" class="form-control phone" value="+380" placeholder="Ваш сотовый..." />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <div>
-                <select asp-for="City" class="form-control">
-                    @foreach (var city in Collections.Cities)
-                    {
-                        <option>@city</option>
-
-                    }
-                </select>
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <div>
-                <input asp-for="PostalCode" class="form-control num-only" placeholder="Ваш почтовый индекс..." />
-                <span asp-validation-for="PostalCode" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <div>
-                <button type="submit" class="btn btn-success sub">Зарегистрироваться</button>
-            </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
+</body>
 
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }

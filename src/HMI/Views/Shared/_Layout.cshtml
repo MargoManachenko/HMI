@@ -32,13 +32,13 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li><a asp-area="" asp-controller="Home" asp-action="">Галерея</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="ShowGallery">Галерея</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="CreateOrder">Оформить заказ</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="MyOrders">Мои заказы @await Html.PartialAsync("_OrdersCount")</a></li>
                     }
                     else
                     {
-                        <li><a asp-area="" asp-controller="Home" asp-action="">Галерея</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="ShowGallery">Галерея</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="GetPrice">Цены</a></li>
                     }
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Контакты</a></li>

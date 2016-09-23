@@ -9,20 +9,20 @@
 }
 
 <link rel="stylesheet" href="~/css/style.css" />
-
+<body style="background-image: url(../images/bgr2.jpg); padding-right: 100px">
 <div class="form-container">
     <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal form">
         <h4 class="header">Вход</h4>
-        <hr />
+        <hr/>
         <div class="form-group">
             <div>
-                <input asp-for="Email" class="form-control" placeholder="Ваш электронный адрес..." />
+                <input asp-for="Email" class="form-control" placeholder="Ваш электронный адрес..."/>
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group">
             <div>
-                <input asp-for="Password" type="password" class="form-control" placeholder="Ваш пароль..." />
+                <input asp-for="Password" type="password" class="form-control" placeholder="Ваш пароль..."/>
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
         </div>
@@ -30,7 +30,7 @@
             <div class="col-md-offset-2 col-md-10">
                 <div class="checkbox">
                     <label asp-for="RememberMe">
-                        <input asp-for="RememberMe" />
+                        <input asp-for="RememberMe"/>
                         @Html.DisplayNameFor(m => m.RememberMe)
                     </label>
                 </div>
@@ -43,7 +43,7 @@
         </div>
     </form>
 </div>
-
-@section Scripts {
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
-}
+    </body>
+    @section Scripts {
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    }
