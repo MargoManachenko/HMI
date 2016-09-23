@@ -22,9 +22,10 @@
                     var curtain = order.Curtain;
                     <div>
                         <h4>
-                            <p> <b>Цвет:</b> @curtain.Color</p>
+                            <p> <b>Цвет:</b> <span style="width: 20px; height: 10px; background-color: @curtain.Color">_________</span></p>
                             <p><b> Материал:</b> @curtain.Material</p>
                             <p><b> Размер:</b> @curtain.Width x @curtain.Height</p>
+                            <p><b> Количество:</b> @curtain.Quantity</p>
                             <p><b> Время заказа:</b> @order.DateOfStart.ToLocalTime()</p>
                             <p>
                                 <b> Цена:</b> @order.Price грн

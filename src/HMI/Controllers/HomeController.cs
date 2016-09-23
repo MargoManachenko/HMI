@@ -91,5 +91,11 @@ namespace HMI.Controllers
         {
             return Order.GetPrice(curtain);
         }
+
+
+        public IActionResult GetPrice()
+        {
+            return View();
+        }
     }
 }

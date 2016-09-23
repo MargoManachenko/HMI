@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HMI</title>
+    <title>@ViewData["Title"]  HMI</title>
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -32,11 +32,14 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
                     @if (User.Identity.IsAuthenticated)
                     {
-
                         <li><a asp-area="" asp-controller="Home" asp-action="">Галерея</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="CreateOrder">Оформить заказ</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="MyOrders">Мои заказы @await Html.PartialAsync("_OrdersCount")</a></li>
-
+                    }
+                    else
+                    {
+                        <li><a asp-area="" asp-controller="Home" asp-action="">Галерея</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="GetPrice">Цены</a></li>
                     }
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Контакты</a></li>
                 </ul>
@@ -46,10 +49,7 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2016 - HMI</p>
-        </footer>
+        
     </div>
 
     <environment names="Development">

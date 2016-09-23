@@ -25,6 +25,10 @@ namespace HMI.Models
         [Display(Name = "Postal Code")]
         public string PostalCode { get; set; }
 
+        //[Required]
+        //[StringLength(100, MinimumLength = 5)]
+        //public string Address { get; set; }
+
         public virtual List<Order> Orders { get; set; }
     }
 }

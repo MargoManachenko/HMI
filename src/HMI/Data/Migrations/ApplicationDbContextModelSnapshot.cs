@@ -80,11 +80,16 @@ namespace HMI.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Color");
+                    b.Property<string>("Color")
+                        .IsRequired();
+
+                    b.Property<string>("Form")
+                        .IsRequired();
 
                     b.Property<double>("Height");
 
-                    b.Property<string>("Material");
+                    b.Property<string>("Material")
+                        .IsRequired();
 
                     b.Property<int>("Quantity");
 

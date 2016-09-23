@@ -8,39 +8,42 @@ namespace HMI.Models.AccountViewModels
 {
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Введите ваш электронный адрес")]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "Электронный адрес")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Пароль должен состоять от 6 до 100 символов", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Пароль")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Подтвердите пароль")]
+        [Compare("Password", ErrorMessage = "Введенные пароли не совпадают")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
-        [Display(Name = "Your name")]
-        [StringLength(100, MinimumLength = 6)]
+        [Required(ErrorMessage = "Введите Имя")]
+        [Display(Name = "Ваше имя")]
+        [StringLength(50, MinimumLength = 6, ErrorMessage = "Имя должно состоять от 6 до 50 символов")]
         public string Name { get; set; }
 
         [Required]
         [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Сотовый телефон")]
+        [StringLength(13, MinimumLength = 13, ErrorMessage = "Введите корректный номер телефона")]
         public string Phone { get; set; }
 
         [Required]
-        //[StringLength(20, MinimumLength = 3)]
-        //public City City { get; set; }
+        [Display(Name = "Город")]
         public string City { get; set; }
 
-        [Required]
-        [DataType(DataType.PostalCode)]
-        [Display(Name = "Postal Code")]
-        public string PostalCode { get; set; }   
+        
+
+        [Required(ErrorMessage = "Введите почтовый индекс")]
+        [Display(Name = "Почтовый индекс")]
+        [StringLength(5, MinimumLength = 5, ErrorMessage = "Почтовый индекс должен состоять из шести цифр (пр. '61060')")]
+        public string PostalCode { get; set; }
     }
 }

@@ -16,23 +16,45 @@
         }
     });
 
+    $("input.num-only").keydown(function (event) {
+        if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 ||
+            (event.keyCode == 65 && event.ctrlKey === true) ||
+            (event.keyCode >= 35 && event.keyCode <= 39)) {
+            return;
+        }
+        else {
+            if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
+                event.preventDefault();
+            }
+        }
+    });
+
+    $("input.phone").keydown(function (event) {
+        if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 ||
+            (event.keyCode == 65 && event.ctrlKey === true) ||
+            (event.keyCode >= 35 && event.keyCode <= 39)) {
+            return;
+        }
+        else {
+            if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
+                event.preventDefault();
+            }
+        }
+    });
+
     $(".priceBtn").click(function () {
         var error = false;
         var inputs = document.getElementsByClassName("input");
-        for (var i = 0; i < inputs.length; i++)
-        {
-            if(inputs[i].value == "")
-            {
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].value == "") {
                 error = true;
                 break;
             }
         }
-        if (error)
-        {
+        if (error) {
             $("#price").html("<b>Заполните все поля</b>");
         }
-        else
-        {
+        else {
             var curtain = {
                 Width: parseFloat(document.getElementById("width").value),
                 Height: parseFloat(document.getElementById("height").value),
@@ -48,6 +70,6 @@
                     $("#price").html("<b>" + data + "грн</b>");
                 }
             });
-        }       
+        }
     });
 });
